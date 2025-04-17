@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Configurações básicas do documento -->
+    <meta charset="UTF-8"> <!-- Define a codificação de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsividade para dispositivos móveis -->
+    <title>Filmes Favoritos</title> <!-- Título da página na aba do navegador -->
+    
+    <style>
+        /* Estilos gerais do corpo da página */
+        body {
+            font-family: 'MS Sans Serif', 'Comic Sans MS', sans-serif; /* Fonte estilo Windows 98 */
+            background-color: #008080; /* Cor de fundo azul "teal" clássico */
+            color: #000000; /* Cor do texto preto */
+            margin: 0;
+            padding: 0;
+            min-height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+            background-image: url('https://art.teleportacia.org/observation/vernacular/stars/anima_blue.gif'); /* GIF de fundo animado */
+            background-repeat: repeat; /* Repete o GIF para preencher todo o fundo */
+            overflow-x: hidden; /* Evita barras de rolagem horizontais */
+        }
+        
+        /* Estilo da janela principal (container do conteúdo) */
+        .window {
+            background-color: #c0c0c0; /* Cinza clássico do Windows */
+            border: 2px solid; /* Borda 3D característica */
+            border-color: #ffffff #808080 #808080 #ffffff; /* Cores para efeito 3D */
+            padding: 3px;
+            margin: 20px auto; /* Centraliza a janela */
+            width: 90%;
+            max-width: 800px; /* Largura máxima para telas grandes */
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5); /* Sombra para profundidade */
+            position: relative;
+        }
+        
+        /* Barra de título da janela */
+        .title-bar {
+            background: linear-gradient(to right, #000080, #1084d0); /* Gradiente azul */
+            color: white;
+            padding: 3px 5px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff; /* Efeito 3D */
+        }
+        
+        /* Área de conteúdo dentro da janela */
+        .window-content {
+            background-color: #ffffff; /* Fundo branco */
+            padding: 20px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080; /* Borda invertida para efeito 3D */
+            min-height: 300px; /* Altura mínima */
+        }
+        
+        /* Estilos para cabeçalhos */
+        h1 {
+            font-size: 24px;
+            margin: 0;
+            color: #000080; /* Azul escuro */
+            text-shadow: 1px 1px 0px #ffffff; /* Sombra branca para efeito 3D */
+        }
+        
+        h2 {
+            background-color: #c0c0c0; /* Cinza */
+            color: #000000;
+            font-size: 18px;
+            padding: 5px;
+            border: 2px solid;
+            border-color: #808080 #ffffff #ffffff #808080; /* Efeito 3D */
+            margin-top: 0;
+        }
+        
+        /* Estilo da lista de participantes */
+        ul {
+            list-style: none; /* Remove marcadores padrão */
+            padding: 0;
+        }
+        
+        li {
+            margin: 15px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px; /* Espaço entre avatar e nome */
+        }
+        
+        /* Estilo dos links */
+        a {
+            text-decoration: none;
+            color: #000080; /* Azul escuro */
+            font-weight: bold;
+            background-color: #c0c0c0; /* Cinza */
+            padding: 3px 10px;
+            border: 2px solid;
+            border-color: #ffffff #808080 #808080 #ffffff; /* Efeito 3D */
+            display: inline-block;
+        }
+        
+        a:hover {
+            background-color: #000080; /* Azul escuro ao passar o mouse */
+            color: white;
+            border-color: #808080 #ffffff #ffffff #808080; /* Efeito de "pressionado" */
+        }
+        
+        /* Estilo dos avatares GIF */
+        .avatar {
+            width: 30px;
+            height: 30px;
+            object-fit: contain; /* Garante que o GIF mantenha proporções */
+        }
+        
+        /* Imagem principal no cabeçalho */
+        .header-image {
+            width: 100%;
+            border: 2px solid #808080; /* Borda cinza */
+            margin-bottom: 15px;
+        }
+        
+        /* Container da garota de anime dançando */
+        .anime-girl {
+            position: fixed; /* Fixa na tela, não rola com a página */
+            top: 20px;
+            right: 20px; /* Posiciona no canto superior direito */
+            width: 150px;
+            z-index: 100; /* Garante que fique acima de outros elementos */
+            border: 3px solid #000080; /* Borda azul */
+            background-color: white; /* Fundo branco */
+            padding: 5px;
+        }
+        
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .anime-girl {
+                width: 100px; /* Reduz tamanho em mobile */
+                top: 10px;
+                right: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Garota de anime dançando - elemento fixo no canto superior direito -->
+    <div class="anime-girl">
+        <img src="https://media.tenor.com/Q4rXUh0j47MAAAAj/anime-dance.gif"
+             alt="Garota de anime dançando" 
+             width="100%"> <!-- GIFanimado de anime --> 
+    </div>
+
+
+
+    <!-- Janela principal que contém todo o conteúdo -->
+    <div class="window" style="margin-top: 50px;">
+        <!-- Barra de título com botões fictícios -->
+        <div class="title-bar">
+            <span>Cinéfilos (não) profissionais</span> <!-- Título da janela -->
+            <span style="font-family: 'Arial'; font-size: 12px;">✕ ▬ _</span> <!-- Botões de janela (fechar, maximizar, minimizar) -->
+        </div>
+        
+        <!-- Conteúdo principal dentro da janela -->
+        <div class="window-content">
+            <!-- Imagem do cabeçalho -->
+            <img src="../imagens/homepage.gif" class="header-image" alt="Filmes favoritos">
+            
+            <!-- Subtítulo -->
+            <h2>Comentários e informações melhores (ou não) que as do letterboxd!</h2>
+            
+            <!-- Lista de participantes com avatares GIF -->
+            <ul>
+                <!-- Cada item da lista contém um GIF avatar e um link -->
+                <li><img src="espaco pra gif" class="avatar" alt="Avatar"> <a href="nome1.html"> Anna Júlia</a></li>
+                <li><img src="../imagens/2bfe67249a27ab893868d152a07242bd.gif" class="avatar" alt="Avatar"> <a href="biaa.html"> Bianca Camila </a></li>
+                <li><img src="../imagens/mysweetpiano.gif" class="avatar" alt="Avatar"> <a href="ellen.html"> Ellen Mayumi </a></li>
+                <li><img src="espaco pra gif" class="avatar" alt="Avatar"> <a href="nome4.html"> Enzo Mendonça </a></li>
+                <li><img src="../imagens/gift.gif" class="avatar" alt="Avatar"> <a href="gabriel.html"> Gabriel Tavares </a></li>
+                <li><img src="espaco pra gif" class="avatar" alt="Avatar"> <a href="nome6.html"> Gleyson Caninde </a></li>
+                <li><img src="https://media.tenor.com/RIxCFKqtj6cAAAAj/guitar-cat.gif" class="avatar" alt="Avatar"> <a href="guiii.html"> Guilherme Matos </a></li>
+                <li><img src="../imagens/pixell.gif" class="avatar" alt="Avatar"> <a href="iriss.html"> Iris Pfister </a></li>
+                <li><img src="espaco pra gif" class="avatar" alt="Avatar"> <a href="Joao.html"> João Victor </a></li>
+            </ul>
+            
+            <!-- Texto de rodapé -->
+            <p style="color: #000080; font-weight: bold; margin-top: 20px;">
+                Cada pessoa escolheu seu filme favorito e compartilhou informações sobre ele. Clique nos nomes para descobrir, juro que tá daora!
+            </p>
+        </div>
+    </div>
+</body>
+</html>
